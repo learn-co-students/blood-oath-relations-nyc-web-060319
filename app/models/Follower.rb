@@ -10,6 +10,10 @@ class Follower
         @motto = motto
     end
 
+    def join_cult(cult)
+        cult.recruit_follower(self)
+    end
+
 
 end
 
