@@ -1,7 +1,7 @@
 
 
 class Cult
-    attr_accessor :cult_population, :name, :location, :founding_year, :slogan, :followers
+    attr_accessor :cult_population, :name, :location, :founding_year, :slogan, :followers, :our_oath
     @@all = []
 
     def initialize(name, location, founding_year, slogan)
@@ -10,7 +10,18 @@ class Cult
         @founding_year = founding_year
         @slogan = slogan
         @followers = []
+        @oath = nil
         @@all << self
+    end
+
+    def new_oath(oath)
+        if (@oath != nil)
+            if (@oath != oath)
+                raise "Logic error"
+            end
+        elsif (@oath == nil)
+            @oath = oath
+        end
     end
 
     def self.all
